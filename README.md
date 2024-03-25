@@ -28,3 +28,18 @@ docker build -t semanticmatching_app .
 docker run -p 5000:5000 semanticmatching_app
 ```
 Access the API by clicking the link http://127.0.0.1:5000 from the Terminal or by directly entering http://127.0.0.1:5000 in your browser. A Flask framework is available for testing. Please enter text in JSON format that meets the requirements in the input box (a template format is available in this repo's test_audiences.json file) and press the submit button to see the results, such as similarities. Some features, such as displaying candidates' IDs, are not yet fully implemented.
+
+### One example with Flask
+![Example Image](test_image.png "Example Image")
+
+## Some additions:
+·Because it took a long time to make Flask, I didn't have time to do the API output. The output of an API can be found in Example_API_Output.json. In fact, line 54 of semanticMatching/__init__.py returns the output_segment part. Just combine the input_segment part to return a target result.
+
+·This project uses Spacy's en_core_web_md trained pipeline and did not select Large or Transformers. The reason is that it takes into account containerization and time constraints and computer performance.
+There are two aspects of impact:
+1. Large models will take a lot of time to build images.
+2. When running in containerization, many accidents occurred. Due to time constraints, there was no energy to solve them. However, this project can be optimized later and use better Measures to reflect the matching degree.
+
+·About Scalability
+Scalability can be achieved through algorithms that can be computed in parallel and through preprocessing and indexing methods. So that the results can be obtained quickly even with large amounts of data.
+
