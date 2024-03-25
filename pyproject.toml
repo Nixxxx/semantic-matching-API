@@ -1,0 +1,12 @@
+[project]
+name = "semanticMatching"
+version = "0.1.0"  
+description = "semantic matching"
+authors = [{name = "Zhongqi Chen", email = "czqchenzq@gmail.com"}]
+dependencies = [
+    "flask",
+]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"

@@ -5,9 +5,9 @@ from  .loadData import docs
 app = Flask(__name__)
 
 # load the pretrained language model from spacy
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_md")
 # this function serves as finding the top k similarities given query and docs(a list of strings)
-def find_top_similarities(query, docs, top_k=3):
+def find_top_similarities(query, docs, top_k=5):
     query_doc = nlp(query)
     
     similarities = [(doc, query_doc.similarity(doc)) for doc in docs]
@@ -39,7 +39,7 @@ def match():
         top_similarities = find_top_similarities(description, docs)
         candidates = [
             {
-                "candidate_id": 1, #id(doc),  current default 1, # TODO: show the candidates' ID 
+                "candidate_id": "", #id(doc), # TODO: show the candidates' ID 
                 "candidate_descriptionAndName": doc.text,
                 "similarity": similarity
             }

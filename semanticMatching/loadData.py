@@ -1,7 +1,7 @@
 import spacy
 import pandas as pd
 # load the pretrained language model from spacy, for test, choose the smalles LM
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_md")
 # read csv files from source_segments.csv whose pattern is like "label_id_long;label_id;parent_id;segment_description;label_name"
 # since the NLP realted information only relies on segment_description and label_name, one brief idea is to combine them.
 df = pd.read_csv(r'source_segments.csv', delimiter=';', encoding='ISO-8859-1')
